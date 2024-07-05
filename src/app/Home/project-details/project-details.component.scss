@@ -1,0 +1,35 @@
+section.header_details{
+
+  .carousel-control-prev-icon, .carousel-control-next-icon{
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+i.top{
+  font-size:4rem;
+  color: #95c253;
+}
+.mo-color{
+  color: #95c253;
+}
+a{
+  text-decoration: none;
+}
+a:hover{
+  color: #95c253;
+}
+form{
+  border-radius: 1.5rem;
+}
+form .mo-bgcolor{
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+form button{
+  background-color:#95c253;
+}
+.mo-bgcolor {
+  background-color: #95c253;
+}
+

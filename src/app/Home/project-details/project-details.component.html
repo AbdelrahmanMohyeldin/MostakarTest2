@@ -1,0 +1,206 @@
++<section class="header_details mt-5" id="header-details">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-6 p-0" data-aos="zoom-in" data-aos-duration="1000">
+        <img [lazyLoad]="this.projectDetails.projectImageCard[0]" alt="{{'Project '+ this.projectDetails.projectId + ' image 1'}}" style="height: 600px; width:100%;"/>
+      </div>
+      <div class="col-lg-6">
+          <div class="row">
+            <div class="w-50 p-0" data-aos="zoom-in" data-aos-duration="1000">
+              <img [lazyLoad]="this.projectDetails.projectImageCard[1]" alt="{{'Project '+ this.projectDetails.projectId + ' image 2'}}" style="height: 300px; width:100%;"/>
+            </div>
+            <div class="w-50 p-0" data-aos="zoom-in" data-aos-duration="1000">
+              <img [lazyLoad]="this.projectDetails.projectImageCard[2]" alt="{{'Project '+ this.projectDetails.projectId + ' image 3'}}" style="height: 300px; width:100%;"/>
+            </div>
+            <div class="w-50 p-0" data-aos="zoom-in" data-aos-duration="1000">
+              <img [lazyLoad]="this.projectDetails.projectImageCard[3]" alt="{{'Project '+ this.projectDetails.projectId + ' image 4'}}" style="height: 300px; width:100%;"/>
+            </div>
+            <div class="w-50 p-0 position-relative" data-aos="zoom-in" data-aos-duration="1000">
+              <img [lazyLoad]="this.projectDetails.projectImageCard[4]" alt="" style="height: 300px; width:100%;"/>
+              <!-- Button trigger modal -->
+              <button class="w-75 border-0 bg-transparent position-absolute top-50 start-50 translate-middle" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                <span class="text-white fw-bold fs-4 ">
+                  مشاهدة الكل {{this.projectDetails.projectImageCard.length}} صور
+                </span>
+              </button>
+            </div>
+          </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+          <div class="modal-content border-0 position-relative">
+            <!-- Close button -->
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+            <button type="button" class="btn btn-dark text-dark fw-bold text-white position-absolute top-0 end-0" style="z-index: 2;" data-bs-dismiss="modal">إغلاق</button>
+
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item" style="max-height: 600px;" *ngFor="let productImage of this.projectDetails.projectImageCard;let i = index" [ngClass]="{'active': i == 0 }">
+                  <img [lazyLoad]="productImage" class="w-100" style="max-height: 600px;" alt="{{'Project '+ this.projectDetails.projectId + ' image '+ (i+1)}}" />
+                </div>
+              </div>
+
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <div class="row gx-0 gy-0">
+              <div class="col-2" *ngFor="let productImage of this.projectDetails.projectImageCard;let i = index">
+                <img [lazyLoad]="productImage" class="w-100" style="height: 100%;" alt="{{'Project '+ this.projectDetails.projectId + ' image '+ (i+1)}}" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="bg-light pb-5">
+  <div class="container">
+    <div class="details-info bg-white p-5 shadow">
+      <div data-aos="fade-left" data-aos-duration="1000">
+        <p class="my-3 fs-2">كود المشروع : {{this.projectDetails.projectId}}</p>
+      </div>
+      <div data-aos="fade-left" data-aos-duration="2000">
+        <p class="my-3 fs-2 fw-light">نبذة عامة حول المشروع:</p>
+        <div *ngFor="let projectInfo of this.projectDetails.projectInfo;let i = index">
+          <p class="text-secondary  fs-5 fw-light">{{projectInfo}}</p>
+        </div>
+      </div>
+      <div data-aos="fade-left" data-aos-duration="2000">
+        <p class="my-3 fs-2 fw-light">موقع المشروع:</p>
+        <div *ngFor="let projectLocation of this.projectDetails.projectLocation;let i = index">
+          <p class="text-secondary fs-5 fw-light">{{projectLocation}}</p>
+        </div>
+      </div>
+      <div data-aos="fade-left" data-aos-duration="2000">
+        <p class="my-3 fs-2 fw-light">أنواع الشقق:</p>
+        <p class="text-secondary fs-5 fw-light">{{this.projectDetails.projectApartement}}</p>
+      </div>
+      <div data-aos="fade-left" data-aos-duration="2000">
+        <p class="my-3 fs-2 fw-light">مميزات المشروع:</p>
+        <div *ngFor="let projectFeatures of this.projectDetails.projectFeatures;let i = index">
+          <p class="text-secondary fs-5 fw-light">{{projectFeatures}}</p>
+        </div>
+      </div>
+      <div data-aos="fade-left" data-aos-duration="2000">
+        <p class="my-3 fs-2 fw-light">ميعاد التسليم:</p>
+        <p class="text-secondary fs-5 fw-light">{{this.projectDetails.projectReceivingDate}}</p>
+      </div>
+      <div data-aos="fade-left" data-aos-duration="2000">
+        <p class="my-3 fs-2 fw-light">الأسعار:</p>
+        <p class="text-secondary fs-5 fw-light">{{this.projectDetails.projectPrices}}</p>
+      </div>
+      <div data-aos="fade-left" data-aos-duration="2000">
+        <p class="my-3 fs-2 fw-light">طريقة الدفع:</p>
+        <p class="text-secondary fs-5 fw-light">{{this.projectDetails.projectPaymentMethod}}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="mo-contact-details" class="bg-white py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <p class="text-center pt-5 pb-3 fs-2 fw-bold" data-aos="fade-down" data-aos-duration="1000">تواصل معنا دائما</p>
+    </div>
+    <div class="row pb-5 justify-content-evenly">
+      <div class="col-lg-5">
+        <div data-aos="fade-left" data-aos-duration="1000">
+          <p class="mt-5 fs-5 fw-bold">عبر الشبكات الاجتماعية</p>
+          <a href="https://www.facebook.com/MostakarProperty/" target="_blank" class="mx-2">
+            <i class="mo-color fa-brands fa-facebook-f fa-2x mx-2 mt-4"></i>
+          </a>
+          <a href="https://www.youtube.com/channel/UCkZLssqXs81g0pEgf6HOxkA" target="_blank" class="mx-2">
+            <i class="mo-color fa-brands fa-youtube fa-2x mx-2 mt-4"></i>
+          </a>
+          <a href="https://www.instagram.com/mostakarproperty_tr/" target="_blank" class="mx-2">
+            <i class="mo-color fa-brands fa-instagram fa-2x mx-2 mt-4"></i>
+          </a>
+        </div>
+        <div data-aos="fade-left" data-aos-duration="2000">
+          <p class="mt-4 mb-4 fs-5 fw-bold">تواصل معنا مباشرة</p>
+          <div>
+            <span><i class="mo-color fa-solid fa-phone mx-2 mt-3"></i></span>
+            <span>00905449067771</span>
+            <br />
+            <span><i class="mo-color fa-solid fa-phone mx-2 mt-3"></i></span>
+            <span>00971558408771</span>
+            <br/>
+            <span><i class="mo-color fa-solid fa-envelope mx-2 mt-3"></i></span>
+            <a href="" class="text-dark">Info&#64;mostakar.com</a>  
+          </div>
+          
+        </div>
+        <div class="mb-5" data-aos="fade-left" data-aos-duration="3000">
+          <p class="mt-4 mb-4 fs-5 fw-bold">يمكنك زيارتنا</p>
+          <span> <i class="mo-color fas fa-building mx-2"></i></span>
+          <span>Merkez Mah. Cendere CAd. Seba Suites Sitesi No:16/1 B Blok D:95 Kağıthane/İstanbul</span>
+          <br />
+          <span> <i class="mo-color fas fa-building mx-2"></i></span>
+          <span>37 شارع الأصايل - الخليج التجاري - دبي - الإمارات العربية المتحدة, Dubai, United Arab Emirates</span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div  data-aos="zoom-in" data-aos-duration="3000">
+          <form class="bg-white mt-4 pb-3 shadow" [formGroup]="mostakarForm" (ngSubmit)="formSubmit()">
+            <p class="text-center card-header mo-bgcolor text-light py-3 fs-4 fw-bold">دعنا نتواصل لنساعدك في اختيار العقار المناسب 00905449067771 - 00971558408771</p>
+            <div class="mt-3 mx-3">
+              <label for="name" class="form-label">الاسم</label>
+              <input type="text" class="form-control" id="inputName" name="inputName" aria-describedby="emailHelp" formControlName="inputName">
+              <div class="pt-1 text-danger" *ngIf="formControls['inputName'].touched && !formControls['inputName'].valid">
+                <small *ngIf="formControls['inputName'].errors?.['required']">
+                  * هذا الحقل مطلوب
+                </small>
+                <small *ngIf="formControls['inputName'].errors?.['minlength']">
+                  * الاسم يجب ان يتكون من 3 أحرف فأكثر
+                </small>
+                <small *ngIf="formControls['inputName'].errors?.['maxlength']">
+                  * الاسم يجب الا يزيد عن 15 حرف
+                </small>
+              </div>
+            </div>
+            <div class="mt-3 mx-3 ">
+              <label for="phone" class="form-label">رقم الهاتف </label>
+              <input type="tel" class="form-control" id="inputPhone" name="inputPhone" formControlName="inputPhone">
+              <div class="pt-1 text-danger"
+                *ngIf="formControls['inputPhone'].touched && !formControls['inputPhone'].valid">
+                <small *ngIf="formControls['inputPhone'].errors?.['required']">
+                  * هذا الحقل مطلوب
+                </small>
+              </div>
+            </div>
+
+            <div class="mt-3 mx-3 pb-3">
+              <label for="email" class="form-label">البريد الالكتروني </label>
+              <input type="email" class="form-control" id="inputEmail" name="inputEmail" formControlName="inputEmail">
+              <div class="pt-1 text-danger"
+                *ngIf="formControls['inputEmail'].touched && !formControls['inputEmail'].valid">
+                <small *ngIf="formControls['inputEmail'].errors?.['required']">
+                  * هذا الحقل مطلوب
+                </small>
+                <small *ngIf="formControls['inputEmail'].errors?.['pattern']">
+                  * يجب ان يكون الايميل بهذا الشكل "mostakar&#64;gmail.com"
+                </small>
+              </div>
+            </div>
+            <button type="submit" class="btn rounded-3 text-white px-5 mx-3">ارسال</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+

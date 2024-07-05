@@ -1,0 +1,35 @@
+<div class="card rounded my-4 mx-2 shadow border border-0">
+  <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" (click)="goToDetails()">
+    <div class="carousel-inner">
+      <div class="carousel-item"  *ngFor="let productImage of Products.projectImageCard;let i = index" [ngClass]="{'active': i == 0 }">
+        <img [lazyLoad]="productImage" class="d-block w-100 rounded" style="height: 300px;" alt="Project images carousel" />
+      </div>
+    </div>
+
+    <div>
+      <div class="position-absolute bottom-0 start-0 text-white fs-6 ms-2 mb-3">
+        <i class="fa-solid fa-camera p-1"></i>
+        <span>{{Products.projectImageCard.length}}</span>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="card-body position-relative">
+    <p class="card-title fs-5 txt1"><b>كود المشروع :</b> {{Products.projectId}}</p>
+    <p class="card-text text-danger fw-bold">{{Products.projectPrices}}</p>
+    <p class="text-secondary fw-bold">{{Products.projectDescript}}</p>
+    <div class="text-start">
+      <button class="btn mo-bgcolor text-white" (click)="goToDetails()">
+        التفاصيل
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<form class="bg-white mt-4 pb-3 shadow" [formGroup]="mostakarForm" (ngSubmit)="formSubmit()" data-aos="zoom-in" data-aos-duration="2000">
+  <p class="text-center card-header mo-bgcolor text-light py-3 fs-4 fw-bold">دعنا نتواصل لنساعدك في اختيار العقار المناسب 00905449067771 - 00971558408771</p>
+  <div class="mt-3 mx-3">
+    <label for="name" class="form-label">الاسم</label>
+    <input type="text" class="form-control" id="inputName" name="inputName" aria-describedby="emailHelp" formControlName="inputName">
+    <div class="pt-1 text-danger" *ngIf="formControls['inputName'].touched && !formControls['inputName'].valid">
+      <small *ngIf="formControls['inputName'].errors?.['required']">
+        * هذا الحقل مطلوب
+      </small>
+      <small *ngIf="formControls['inputName'].errors?.['minlength']">
+        * الاسم يجب ان يتكون من 3 أحرف فأكثر
+      </small>
+      <small *ngIf="formControls['inputName'].errors?.['maxlength']">
+        * الاسم يجب الا يزيد عن 15 حرف
+      </small>
+    </div>
+  </div>
+  <div class="mt-3 mx-3 ">
+    <label for="phone" class="form-label">رقم الهاتف </label>
+    <input type="tel" class="form-control" id="inputPhone" name="inputPhone" formControlName="inputPhone">
+    <div class="pt-1 text-danger"
+      *ngIf="formControls['inputPhone'].touched && !formControls['inputPhone'].valid">
+      <small *ngIf="formControls['inputPhone'].errors?.['required']">
+        * هذا الحقل مطلوب
+      </small>
+    </div>
+  </div>
+
+  <div class="mt-3 mx-3 pb-3">
+    <label for="email" class="form-label">البريد الالكتروني </label>
+    <input type="email" class="form-control" id="inputEmail" name="inputEmail" formControlName="inputEmail">
+    <div class="pt-1 text-danger"
+      *ngIf="formControls['inputEmail'].touched && !formControls['inputEmail'].valid">
+      <small *ngIf="formControls['inputEmail'].errors?.['required']">
+        * هذا الحقل مطلوب
+      </small>
+      <small *ngIf="formControls['inputEmail'].errors?.['pattern']">
+        * يجب ان يكون الايميل بهذا الشكل "mostakar&#64;gmail.com"
+      </small>
+    </div>
+  </div>
+  <button type="submit" class="btn rounded-3 text-white px-5 mx-3">ارسال</button>
+</form>

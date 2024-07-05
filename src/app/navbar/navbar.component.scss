@@ -1,0 +1,29 @@
+a.logo{
+  background-image: url("../../assets/images/MO4.png");
+  height: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 125%;
+  width: 150px;
+}
+.navbar-light .navbar-nav .nav-link{
+  color: black;
+  position: relative;
+}
+.navbar-light .navbar-nav li:hover .nav-link {
+  color: #95c253;
+
+}
+.navbar-light .navbar-nav li .nav-link::after{
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  right: 0px;
+  width: 0%;
+  height: 2px;
+  background-color: #95c253;
+  transition:  all 1s ease-out;
+}
+.navbar-light .navbar-nav li:hover .nav-link::after{
+  width: 100%;
+}

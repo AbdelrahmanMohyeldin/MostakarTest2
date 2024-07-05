@@ -1,0 +1,19 @@
+<section class="bg-white py-5" id="turkey-projects">
+  <div class="container" data-aos="zoom-in" data-aos-duration="2000">
+    <h1 class="text-center fs-1 py-5">
+      ما عليك سوى الاستثمار من خلالنا
+    </h1>
+    <div class="row">
+      <div class="col-md-6 col-lg-6 col-xl-4" *ngFor="let Productitem of Products | slice : startPage : paginationLimit" >
+        <app-project
+          [Products]="Productitem"
+        ></app-project>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-evenly mt-5">
+      <button *ngIf ="paginationLimit < Products.length" (click)="showMoreItems()" class="btn mo-bgcolor text-white">مشاريع أكثر ...</button>
+      <button *ngIf ="paginationLimit > 6" (click)="showLessItems()" class="btn mo-bgcolor text-white">مشاريع أقل ...</button>
+    </div>
+  </div>
+</section>

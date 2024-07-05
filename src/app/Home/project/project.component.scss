@@ -1,0 +1,12 @@
+.mo-bgcolor{
+  background-color: #95c253;
+}
+.mo-color{
+  color: #95c253;
+}
+div.card{
+  transition:box-shadow 0.2s !important;
+  &:hover{
+      box-shadow: 0 0 40px 0 rgba(0,0,0,0.5) !important
+  }
+}
